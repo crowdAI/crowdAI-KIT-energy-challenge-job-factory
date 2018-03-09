@@ -37,5 +37,5 @@ while True:
     data = json.loads(data)
     job = JOB_QUEUE.enqueue(job_execution_wrapper, data)
     # TODO: Validate the data before working on it
-    print "Enqueueing Job : ", data
+    print("Enqueueing Job : ", data)
     redis_conn.rpush(data["broker_response_channel"], json.dumps(job_enqueud_template(data["data_sequence_no"], job.id)))
